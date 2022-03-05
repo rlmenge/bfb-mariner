@@ -14,6 +14,7 @@ fi
 
 DISTRO="mariner"
 DISTRO_VERSION="2.0"
+
 docker build --platform linux/arm64 -t bfb_runtime_${DISTRO}${DISTRO_VERSION} -f Dockerfile .
 docker run -t --rm --privileged -e container=docker \
 	-v $PWD:/workspace \

@@ -98,7 +98,8 @@ WDIR=${WDIR:-/root/workspace/bfb}
 
 echo "Work directory: $WDIR"
 
-MARINER_IMAGE=`cat /etc/mlnx-release`
+#MARINER_IMAGE=`cat /etc/mlnx-release`
+MARINER_IMAGE="my-bfb"
 MARINER_BFB=${MARINER_IMAGE}.bfb
 
 PATH=$PATH:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/mellanox/scripts:/opt/mellanox/scripts/bin
@@ -124,9 +125,9 @@ ex()
         fi
 }
 
-echo ${BF_HOSTNAME} > /etc/hostname
+#echo ${BF_HOSTNAME} > /etc/hostname
 
-hostname ${BF_HOSTNAME}
+#hostname ${BF_HOSTNAME}
 
 cat > /usr/bin/arch << EOF
 #!/bin/bash
@@ -138,7 +139,7 @@ chmod 755 /usr/bin/arch
 ex mkdir -p ${WDIR}
 ex cd ${WDIR}
 ex rm -rf initramfs
-
+echo ${kernel} 
 initramfs=$WDIR/dump-initramfs-v0
 if [ ! -e /boot/initramfs-${kernel}.img ]; then
 	ex dracut --kver ${kernel} --force --omit-drivers 'mlx4_core mlx4_en' /boot/initramfs-${kernel}.img ${kernel}
@@ -258,7 +259,7 @@ copy_rpm()
 }
 
 # Copy the content of RPM packages
-for package in  mlxbf-bfscripts util-linux dosfstools e2fsprogs kmod glibc coreutils pciutils usbutils chkconfig mft mft-oem kernel-mft tar
+for package in  mlxbf-bfscripts util-linux dosfstools e2fsprogs kmod glibc coreutils pciutils usbutils chkconfig kernel-mft tar
 do
 	copy_rpm $package
 done
