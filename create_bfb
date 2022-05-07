@@ -92,7 +92,7 @@ do
         esac
         shift
 done
-kernel="5.15.2.1-2.cm2"
+kernel="5.15.26.1-2.cm2"
 
 SCRIPTS_DIR=`dirname $0`
 
@@ -101,7 +101,7 @@ WDIR=${WDIR:-/root/workspace/bfb}
 echo "Work directory: $WDIR"
 
 #MARINER_IMAGE=`cat /etc/mlnx-release`
-MARINER_IMAGE="mariner-2.0-bf2"
+MARINER_IMAGE="mariner-2.0-bf2-with-dpdk"
 MARINER_BFB=${MARINER_IMAGE}.bfb
 
 PATH=$PATH:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/mellanox/scripts:/opt/mellanox/scripts/bin
