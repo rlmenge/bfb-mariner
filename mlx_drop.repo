@@ -1,6 +1,6 @@
 [selfhost-repo]
 name=Selfhost Build Repo (out/RPMS)
-baseurl=https://linux.mellanox.com/public/repo/doca/1.3.0-beta/mariner2.0/aarch64/
+baseurl=https://linux.mellanox.com/public/repo/doca/1.3.0/mariner2.0/aarch64/
 enabled=1
 priority=1
 gpgcheck=0

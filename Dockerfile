@@ -8,7 +8,7 @@ ADD create_bfb .
 ADD update.cap .
 ADD mlx_drop.repo /etc/yum.repos.d/
 
-ENV kernel=5.15.26.1-2.cm2
+ENV kernel=5.15.32.1-3.cm2
 ENV RUN_FW_UPDATER=no
 RUN yum install -y dnf
 
@@ -17,7 +17,7 @@ RUN dnf install -y util-linux dnf-utils netplan openssh-server iproute which git
 RUN depmod -a $kernel
 # RUN yum-config-manager --dump docas
 
-RUN dnf install -y gpio-mlxbf gpio-mlxbf2 ibacm ibutils2 infiniband-diags infiniband-diags-compat ipmb-dev-int ipmb-host kernel-mft knem knem-modules libibumad libibverbs libibverbs-utils libpka librdmacm librdmacm-utils libxpmem libxpmem-devel mft mft-oem mlnx-ethtool mlnx-fw-updater mlnx-iproute2 mlnx-libsnap mlnx-nvme mlnx-tools mlx-bootctl mlx-regex mlx-trio mlxbf-bootctl mlxbf-bootimages mlxbf-livefish mlxbf-pmc mstflint ofed-scripts opensm opensm-devel opensm-libs opensm-static perftest rdma-core rdma-core-devel srp_daemon tmfifo ucx ucx-cma ucx-devel ucx-ib ucx-knem ucx-rdmacm ucx-xpmem xpmem xpmem-modules
+RUN dnf install -y gpio-mlxbf gpio-mlxbf2 ibacm ibutils2 infiniband-diags infiniband-diags-compat ipmb-dev-int kernel-mft knem knem-modules libibumad libibverbs libibverbs-utils librdmacm librdmacm-utils libxpmem libxpmem-devel mft mft-oem mlnx-ethtool mlnx-fw-updater mlnx-iproute2 mlnx-libsnap mlnx-nvme mlnx-tools mlx-bootctl mlx-regex mlx-trio mlxbf-bootctl mlxbf-bootimages mlxbf-livefish mlxbf-pmc mstflint ofed-scripts opensm opensm-devel opensm-libs opensm-static perftest rdma-core rdma-core-devel srp_daemon tmfifo ucx ucx-cma ucx-devel ucx-ib ucx-knem ucx-rdmacm xpmem xpmem-modules
 
 RUN depmod -a $kernel
 RUN wget --no-check-certificate --no-verbose $(repoquery --nogpgcheck --location mlnx-ofa_kernel)
